@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="Lazarus SynEdit Html Exporter">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>RockPaperScissors.lpr</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF"><pre><code><font  size=3 face="Courier New"><font color="#000000"><b>program </b>RockPaperScissors<font color="#FF0000">;
+<b>{$R *.res}
+</b></font><b>uses
+  </b>crt<font color="#FF0000">;
+</font><b>var
+  </b>temp<font color="#FF0000">: </font><b>string</b><font color="#FF0000">;
+  </font>selection<font color="#FF0000">: </font>char<font color="#FF0000">;
+
+</font><b>procedure </b>backgroundColour<font color="#FF0000">(</font><b>var </b>colour<font color="#FF0000">: </font><b>string</b><font color="#FF0000">); </font><b>begin
+
+  if </b>colour <font color="#FF0000">= </font><font color="#0000FF">'Blue' </font><b>then
+    </b>textBackground<font color="#FF0000">(</font>Blue<font color="#FF0000">);
+
+  </font>clrScr<font color="#FF0000">;
+
+</font><b>end</b><font color="#FF0000">;
+
+</font><b>procedure </b>waitKey<font color="#FF0000">; </font><b>begin
+
+  repeat
+  until </b>keyPressed<font color="#FF0000">;
+
+</font><b>end</b><font color="#FF0000">;
+
+</font><b>procedure </b>ascii<font color="#FF0000">(</font><b>var </b>asciiType<font color="#FF0000">: </font><b>string</b><font color="#FF0000">); </font><b>begin
+
+  if </b>asciiType <font color="#FF0000">= </font><font color="#0000FF">'logo' </font><b>then begin
+    </b>writeln<font color="#FF0000">(</font><font color="#0000FF">'==============================================================================='</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'                 RRRRR          PPPPP            SSSSS'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'                 R    R         P    P          S'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'                 RRRRR       -  PPPPP        -   SSSS'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'                 R  R           P                    S'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'                 R   RR OCK     P      APER     SSSSS  CISSORS'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'==============================================================================='</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+  </font><b>end</b><font color="#FF0000">;
+
+  </font><b>if </b>asciiType <font color="#FF0000">= </font><font color="#0000FF">'titleTop' </font><b>then begin
+    </b>writeln<font color="#FF0000">(</font><font color="#0000FF">'-------------------------------------------------------------------------------'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  Rock-Paper-Scissors'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'-------------------------------------------------------------------------------'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+  </font><b>end</b><font color="#FF0000">;
+
+  </font><b>if </b>asciiType <font color="#FF0000">= </font><font color="#0000FF">'titleShort' </font><b>then begin
+    </b>writeln<font color="#FF0000">(</font><font color="#0000FF">'  Rock-Paper-Scissors'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'-------------------------------------------------------------------------------'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+  </font><b>end</b><font color="#FF0000">;
+
+  </font><b>if </b>asciiType <font color="#FF0000">= </font><font color="#0000FF">'titleLong' </font><b>then begin
+    </b>writeln<font color="#FF0000">(</font><font color="#0000FF">'  Rock-Paper-Scissors'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  Develop by Jason Kwok'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'-------------------------------------------------------------------------------'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+  </font><b>end</b><font color="#FF0000">;
+
+  </font><b>if </b>asciiType <font color="#FF0000">= </font><font color="#0000FF">'divideMiddle' </font><b>then begin
+    </b>writeln<font color="#FF0000">;
+    </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'-------------------------------------------------------------------------------'</font><font color="#FF0000">);
+    </font>writeln<font color="#FF0000">;
+  </font><b>end</b><font color="#FF0000">;
+
+  </font><b>if </b>asciiType <font color="#FF0000">= </font><font color="#0000FF">'divideLast' </font><b>then begin
+    </b>writeln<font color="#FF0000">;
+    </font>write<font color="#FF0000">(</font><font color="#0000FF">'-------------------------------------------------------------------------------'</font><font color="#FF0000">);
+  </font><b>end</b><font color="#FF0000">;
+
+</font><b>end</b><font color="#FF0000">;
+
+</font><b>procedure </b>intro<font color="#FF0000">; </font><b>begin
+
+  </b>clrScr<font color="#FF0000">;
+
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'logo'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'titleLong'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  Loading, please wait...'</font><font color="#FF0000">);
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'divideLast'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+
+  </font>delay<font color="#FF0000">(</font><font color="#000080">2500</font><font color="#FF0000">);
+
+</font><b>end</b><font color="#FF0000">;
+
+</font><b>procedure </b>menu<font color="#FF0000">; </font><b>begin
+
+  </b>clrScr<font color="#FF0000">;
+
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'titleTop'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  You can choose to play the game (1), or change the option of the game (2). '</font><font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  You can also choose to leave this program (9).'</font><font color="#FF0000">);
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'divideMiddle'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  Menu options:'</font><font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'    [1] Play'</font><font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'    [2] Option'</font><font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'    [9] LEAVE'</font><font color="#FF0000">);
+  </font>writeln<font color="#FF0000">(</font><font color="#0000FF">'  *Please enter the NUMBER in front of each option.'</font><font color="#FF0000">);
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'divideMiddle'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+
+  </font>write<font color="#FF0000">(</font><font color="#0000FF">'Please select an item: '</font><font color="#FF0000">);
+  </font>readln<font color="#FF0000">(</font>selection<font color="#FF0000">);
+  </font>temp <font color="#FF0000">:= </font><font color="#0000FF">'divideLast'</font><font color="#FF0000">;
+  </font>ascii<font color="#FF0000">(</font>temp<font color="#FF0000">);
+
+  </font><b>case </b>selection <b>of
+     </b><font color="#0000FF"><b>{'1':}
+     {'2':}
+     </b>'9'</font><font color="#FF0000">: </font>halt<font color="#FF0000">;
+     </font><b>else </b>menu<font color="#FF0000">;
+  </font><b>end</b><font color="#FF0000">;
+
+</font><b>end</b><font color="#FF0000">;
+
+</font><b>begin
+
+  </b>temp <font color="#FF0000">:= </font><font color="#0000FF">'Blue'</font><font color="#FF0000">;
+  </font>backgroundColour<font color="#FF0000">(</font>temp<font color="#FF0000">);
+
+  </font>intro<font color="#FF0000">;
+
+  </font>menu<font color="#FF0000">;
+
+  </font>waitKey<font color="#FF0000">;
+
+</font><b>end</b><font color="#FF0000">.
+
+</font></font>
+</code></pre>
+</body>
+</html>
